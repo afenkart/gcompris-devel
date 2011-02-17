@@ -1,0 +1,1061 @@
+gcompris (9.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Drop GTK_DISABLE_DEPRECATED patch, useless for now.
+  * Provide RELEASE_NOTE_9.3.txt downloaded from sourceforge.
+  * New voice package for Asturian.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 27 Jun 2010 22:51:30 +0200
+
+gcompris (9.2-2-2) unstable; urgency=low
+
+  * Build goocanvas without -DGTK_DISABLE_DEPRECATED since
+    GTK_WIDGET_HAS_FOCUS has been deprecated in gtk 2.20 (Closes: #577303).
+    Why do they use that flag for a *release version* ?!
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 18 Apr 2010 23:41:58 +0200
+
+gcompris (9.2-2-1) unstable; urgency=low
+
+  * New upstream release (Closes: #563986).
+  * debian/watch: allow dashes in upstream version.
+  * LAL-licenced component changes, reflect in debian/copyright and
+    debian/rules.
+  * Added librsvg2-dev to build-deps.
+  * Added python-cairo-dev to build-deps (required despite
+    --enable-py-build-only); added python-cairo to deps.
+  * Stop installing obsolete NEWS file, take RELEASE_NOTES*.txt from sf
+    download page instead.
+  * Dropped non-existent --without-editor from configure call.
+  * New voice packages for Esperanto and Chinese.
+  * Fix typo in dependency on gstreamer (Closes: #532454).
+  * Rebuild switches dependency to python2.5 (Closes: #485570).
+  * Add lintian override for false-positive stating that gcompris-dbg
+    should depend on gcompris-data, where it already indirectly does
+    (Closes: #554199).  Upgrade debhelper build-dep to ">= 6.0.7~".
+  * Change doc-base section to "Education" (lintian).
+  * Added explicit copyright notice (lintian).
+  * Added ${misc:Depends} to gcompris-dbg (lintian).
+  * Bumped dependency on debhelper to >=5 to match debian/compat (lintian).
+  * Bumped Standards-Version to 3.8.4, no change.
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 06 Mar 2010 17:06:44 +0100
+
+gcompris (8.4.12-1) unstable; urgency=low
+
+  * New upstream release.
+  * Add build-dependency on libgnet-dev, since that feature is now active
+    by default.  
+  * Depend on gstreamer0.10-plugins-good for .wav files (Closes: #510774).
+  * Fix typo in polish translation (Closes: #494476).
+  * Depend on a recent version of librsvg2-common to avoid problems for
+    backports (Closes: #452519).
+  * Move -dbg package into section:debug (lintian).
+  * Depend on gstreamer0.10-alsa as default gstreamer0.10-audiosink
+    version (lintian).
+  * Turn "set -e" on in gcompris.preinst (lintian).
+  * Bumped Standards-Version to 3.8.1, no change.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 19 Apr 2009 23:18:11 +0200
+
+gcompris (8.4.8-1) unstable; urgency=low
+
+  * New upstream release (Closes: #503758).
+  * New voice packages for Hebrew, Nynorsk, Punjabi.
+  * Acknowledge NMU.
+  * Removed extraneous depends of gcompris-dbg on gcompris-data introduced
+    by error in NMU.
+  * Added Homepage to debian/control.
+  * Bumped Standards-Version to 3.8.0.
+  * Removed use of dh_python.
+  * Add build-dep on intltool.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 01 Mar 2009 22:44:35 +0100
+
+gcompris (8.4.4-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix the docdir screwup. Closes: #469430, #469433
+  * Drop python-xml dependency. Closes: #468589
+
+ -- Thomas Viehmann <tv@beamnet.de>  Sat, 08 Mar 2008 15:05:27 +0100
+
+gcompris (8.4.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * New voice packages for Bulgarian and Urdu.
+  * Setup gcompris-dbg docdir as a symlink as well.
+  * Added the LAL text to debian/copyright for the LuneRouge sounds, do
+    not install the license file.
+  * Bumped Standards-Version to 3.7.3, no additional change required.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 17 Feb 2008 23:56:16 +0100
+
+gcompris (8.4.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Dropped gnome_canvas hack, integrated upstream.
+  * Fixed upstream .desktop file to use Education category (Javier
+    Fernández-Sanguino Peña - Closes: #448423).
+  * Added dependency on librsvg2-common to ensure gtk can read svg files
+    (Yann Verley - Closes: #448780).
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 01 Nov 2007 17:42:07 +0100
+
+gcompris (8.4.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * New sound package for Breton.
+  * Changed priority of -dbg package to "extra", matching archive override.
+  * Moved desktop files to main package, replace old gcompris-data
+    (lintian).
+  * Improve handling of "make distclean" (lintian).
+  * Update menu entries to use Applications/Education (lintian).
+  * Added dependencies on gstreamer0.10-audiosink and
+    gstreamer0.10-plugins-base to get the sound to work.
+  * Removed obsolete vorbis-tools dependency, and obsolete libgnomecanvas
+    build-dependency (a custom copy of the latter is used instead).
+  * Improved hack to avoid gcc optimizing-out gnome_canvas' polygon,
+    clipgroup, and bpath.
+
+ -- Yann Dirson <dirson@debian.org>  Mon, 15 Oct 2007 22:45:04 +0200
+
+gcompris (8.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Build-depend on libgstreamer0.10-dev.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 13 Sep 2007 21:58:34 +0200
+
+gcompris (8.3.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * New sound packages for Greek and Serbian voices.
+  * Make -dbg package depend on binary:Version for binNMU friendliness
+    (Closes: #430103).
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 27 Jun 2007 21:59:10 +0200
+
+gcompris (8.3.1-3) unstable; urgency=low
+
+  * Ship debugging symbols in new gcompris-dbg package.
+  * Applied fix by Ludovic Rousseau to get gcompris to remove the sound
+    mutex when stopped (Closes: #416541).
+  * Added LDFLAGS=-g on configure command-line.
+  * Switched to debhelper compat level 5.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 17 May 2007 23:39:51 +0200
+
+gcompris (8.3.1-2) unstable; urgency=low
+
+  * Applied upstream patch to get more details on python-related crashes.
+  * Removed unused build-deps: python-gnome2-dev, libdirectfb-dev,
+    libpopt-dev, libao-dev, libvorbis-dev (>= 1.0.0-2).
+  * Removed now-useless assetml pattern from debian/*.files.
+  * Reinserted dh_shlibdeps call, removed in 8.3-1 instead of
+    dh_makeshlibs (Closes: #423465).
+  * Updated src/board/canvas.c, regenerated by upstream from gnome-pyhon
+    trunk, in the hope it will address assorted issues.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 13 May 2007 21:14:57 +0200
+
+gcompris (8.3.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * New sound packages for Hindi.
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  1 May 2007 14:06:43 +0200
+
+gcompris (8.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * New sound packages for Arabic (Tunisia), Indonesian, and Norwegian
+    (Bokmal).
+  * Fixed configure.in and regenerated configure, to circomvent
+    non-existing macosx/Makefile.in.
+  * No longer ships libgcompris, removed the 2 packages.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 26 Apr 2007 20:46:14 +0200
+
+gcompris (8.2.2-1) unstable; urgency=low
+
+  * New upstream bugfix release, fixes among other things the support for
+    the version of gnucap shipped in etch.
+  * Add missing dependency on python-gtk2 (Closes: #396523).
+  * Removed reference to non-existent sound file from memory.c (upstream
+    fix - impacts 8.2 as well).  
+  * Now suggests gnuchess, gnucap, and tuxpaint.
+  * Updated extended description for the main package.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 15 Dec 2006 23:08:17 +0100
+
+gcompris (8.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * New sound package for Somali language.
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  7 Nov 2006 23:45:14 +0100
+
+gcompris (8.1-3) unstable; urgency=low
+
+  * Use a cast in warning message in chess.c to fix the 64bit build
+    (upstream fix) (Closes: #395988).
+  * Built with current libsdl-mixer (Closes: #396355).
+  * Build-depend on libxxf86vm-dev to be able to use xf86vidmode for
+    fullscreen mode.
+  * Use --x-libraries=/usr/lib when calling configure, to workaround some
+    as-yet-undetermined problem.
+  * Fixed short dsecription for gcompris-sound-mr to correctly mention
+    Indian Marathi, not Italian.
+
+ -- Yann Dirson <dirson@debian.org>  Wed,  1 Nov 2006 10:21:06 +0100
+
+gcompris (8.1-2) unstable; urgency=low
+
+  * Remove debian/gcompris.6 manpage since upstream now ships one, and
+    force manpages to be in package gcompris - that upstream manpage ended
+    in gcompris-data, which caused upgrade problem.
+  * Replaced dependencies on python2.3-* to python-* for compliance with
+    new python policy (patch from Ubuntu package, closes: #380808).
+    Specify pycompat version of 2.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 20 Oct 2006 00:02:32 +0200
+
+gcompris (8.1-1) unstable; urgency=low
+
+  * Acknowledge NMU (Closes: #381646, #366281).
+  * New upstream release.
+  * New sound packages for Czech, Indian Marathi, Brazilian Portugese, and
+    Turkish.
+  * Removed dependency and build-dependency on python-gnome, not needed
+    any more - finally kep the build-dep, so configure does not complain.
+  * Bumped Standards-Version to 3.7.2, no change.
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 18 Oct 2006 23:15:30 +0200
+
+gcompris (7.4-3.1) unstable; urgency=low
+
+  [ Loic Minier ]
+  * Make the package bin-NMU safe.
+    - Build-depend on dpkg-dev >= 1.3.19.
+    - Use ${source:Version} instead of ${Source-Version} to depend on arch:
+      all packages.
+
+  [ Frans Pop ]
+  * Non-Maintainer upload.
+
+ -- Frans Pop <fjp@debian.org>  Tue, 15 Aug 2006 02:41:55 +0200
+
+gcompris (7.4-3) unstable; urgency=low
+
+  * The "gosh, I missed more of these deps hidden by gnomeui" release:
+    libpopt-dev (Closes: #365848).  Seems to be the last one (famous last
+    words...)
+
+ -- Yann Dirson <dirson@debian.org>  Thu,  4 May 2006 22:32:47 +0200
+
+gcompris (7.4-2) unstable; urgency=low
+
+  * Added build-deps on libgtk2.0-dev (>= 2.4.0), libgnomecanvas2-dev (>=
+    2.3.6) which became apparent after removal of libgnomeui-dev (Closes:
+    #365540).
+
+ -- Yann Dirson <dirson@debian.org>  Mon,  1 May 2006 20:57:24 +0200
+
+gcompris (7.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * New package for Dutch voices.
+  * Dropped build-dep on libgnomeui-dev, not used.
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 19 Apr 2006 22:46:40 +0200
+
+gcompris (7.3.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * New package for Finnish voices.
+  * Added build-dep on libdirectfb-dev.
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 28 Feb 2006 23:47:32 +0100
+
+gcompris (7.3.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 21 Feb 2006 20:47:40 +0100
+
+gcompris (7.3-1) unstable; urgency=low
+
+  * New upstream release:
+    * Fixes the "PyThreadState_Get: no current thread" crash (Closes:
+    #304046)
+    * Fixes administration mode (Closes: #351978).
+  * Additionally, those bugs were fixed in the previous 7.x series:
+    * segmentation fault during wordsgame (Closes: #273680).
+    * segmentation fault in addition game (Closes: #292727).
+    * gcompris_edit is not shipped any more (Closes: #258317).
+  * Added missing include for build on ia64 from Dann Frazier (Closes:
+    #350452).
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 19 Feb 2006 18:27:31 +0100
+
+gcompris (7.2-1) unstable; urgency=low
+
+  * New upstream release (configure patches integrated upstream).
+  * New language-specific sound package for Hungarian.
+  * Use recommended regexp for sourceforge packages in debian/watch.
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 21 Dec 2005 23:46:41 +0100
+
+gcompris (7.1.1-2) unstable; urgency=low
+
+  * Fixed #define guard in src/boards/py-gcompris-wordlist.h, which caused
+    problem on ia64 and other platforms (Closes: #341280).
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 29 Nov 2005 23:02:17 +0100
+
+gcompris (7.1.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Reapplied changes to configure.
+  * New language-specific sound package for Basque.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 27 Nov 2005 00:17:38 +0100
+
+gcompris (7.0.3-2) unstable; urgency=low
+
+  * Reapplied changes to configure.
+
+ -- Yann Dirson <dirson@debian.org>  Sun,  9 Oct 2005 20:38:35 +0200
+
+gcompris (7.0.3-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Yann Dirson <dirson@debian.org>  Sat,  8 Oct 2005 15:14:35 +0200
+
+gcompris (7.0.2-1) unstable; urgency=low
+
+  * New upstream release.
+    * Fixes xrandr issue causing crash at startup (Closes: #310058).
+  * Reapplied configure.in patch.
+  * Switched from debhelper V2 to V4, no change.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 22 Sep 2005 20:35:08 +0200
+
+gcompris (7.0.1-2) unstable; urgency=low
+
+  * Configure with --enable-py-build-only to avoid too many build-deps.
+    This removes the need for the xvfb kludge (Yves Combes) (Closes: #329224).
+  * Fixed configure to skip testing for python-pysqlite2 in py-build-only
+    (Thanks to Yves Combes for the information).  
+  * Moved python-pysqlite2 from build-deps to deps as python2.3-pysqlite2
+    (Thanks to Yves Combes).
+  * Moved python2.3-xml from recommends to deps.
+  * Removed build-dep on libassetml-dev, since the internal version is
+    used anyway.
+  * Updated FSF address in copyright file (lintian).
+  * Removed menu file installed by upstream makefile (Closes: #327471).
+  * Updated menu file to use "gcompris -a" to call the profile editor.
+  * Bumped Standards-Version to 3.6.2, no change.
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 20 Sep 2005 22:16:34 +0200
+
+gcompris (7.0.1-1) unstable; urgency=low
+
+  * New upstream release:
+    * Ships updated hebrew support (Closes: #324359).
+  * Added new build-deps: libsqlite3-dev, python-gnome2, python-pysqlite2.
+  * Replaced build-dep on python2.3-dev by python-dev.
+  * Run the configure step under xvfb-run, so that the gnome.canvas test
+    succeeds (See: #327619).  Build-depend on xvfb and xbase-clients for
+    this.
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 17 Sep 2005 21:58:29 +0200
+
+gcompris (6.5.3-3) unstable; urgency=low
+
+  * Rebuild for the C++ ABI change (Closes: #321281) and aalib package
+    name change (Closes: #320887).
+  * Build --without-editor to circumvent a gcc4 problem on code that was
+    removed in CVS (Closes: #322105).
+  * Updated debian/watch.
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 20 Aug 2005 16:45:55 +0200
+
+gcompris (6.5.3-2) unstable; urgency=low
+
+  * Added missing dependency on python2.3-gnome2, without which no
+    python board can work - that's about 20 boards in the most recent ones
+    (Closes: #309838).
+  * Recommend python2.3-xml to be able to save SVG animations; mention it in
+    extended description.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 20 May 2005 00:19:36 +0200
+
+gcompris (6.5.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Regenerate libtool and autoconf stuff again.
+  * New sound package for swedish voices.
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 26 Apr 2005 00:37:28 +0200
+
+gcompris (6.5.2-3) unstable; urgency=low
+
+  * Added missing -lXrandr to libcompris link-line.  For our purposes,
+    closes: #303280.
+  * Rerun aclocal/autoconf/automake because of this.  Sigh.
+
+ -- Yann Dirson <dirson@debian.org>  Wed,  6 Apr 2005 21:54:44 +0200
+
+gcompris (6.5.2-2) unstable; urgency=low
+
+  * The "do not trust minor release to be minor" release.
+  * Added missing build-dep on libxrandr-dev.
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  5 Apr 2005 18:10:01 +0200
+
+gcompris (6.5.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Regenerate libtool and autoconf stuff again.
+  * Do not remove zh_CN.gmo any more, it is correctly packaged upstream
+    now.
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  5 Apr 2005 14:22:33 +0200
+
+gcompris (6.5.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Regenerate libtool and autoconf stuff again.
+
+ -- Yann Dirson <dirson@debian.org>  Mon,  4 Apr 2005 15:47:16 +0200
+
+gcompris (6.4-1) unstable; urgency=low
+
+  * New upstream release.
+    - no longer tries to play COPYRIGHT file (Closes: #279921).
+  * Regenerate libtool and autoconf stuff again.
+  * Created an empty zh_CN.po and added zh_CN to ALL_LINGUAS, so that we
+    do not loose the xml translations.  Remove po.gmo on clean - I should
+    think about removing this removal when the problem is fixed upstream.  
+  * Fixed gcompris-edit.desktop.in to use correct executable name (Closes:
+    #281457).
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 30 Nov 2004 23:17:53 +0100
+
+gcompris (6.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Regenerate libtool and autoconf stuff again.
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  9 Nov 2004 21:22:25 +0100
+
+gcompris (6.1+6.3RC3b-1) unstable; urgency=low
+
+  * Upstream update for 6.3RC3 release, with forgotten gaelic translation.
+  * Regenerate libtool and autoconf stuff again.
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 30 Oct 2004 14:38:17 +0200
+
+gcompris (6.1+6.3RC3-1) unstable; urgency=low
+
+  * New upstream release candidate.
+  * Regenerate libtool (and thus auto*) stuff again.
+  * New package for Russian sounds.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 28 Oct 2004 21:18:27 +0200
+
+gcompris (6.1+6.3RC2-3) unstable; urgency=low
+
+  * Regenerate libtool (and thus auto*) stuff (Closes: #278058).
+  * Removed "pa" from ALL_LINGUAS, since pa.po is not in upstream tarball.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 24 Oct 2004 23:30:32 +0200
+
+gcompris (6.1+6.3RC2-2) unstable; urgency=low
+
+  * Make sure the shlibs file for libgcompris causes versionned dep on the
+    lib package (Closes: #256057).
+  * Fixed path to docs in doc-base file (Closes: #262910).
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 14 Oct 2004 00:33:54 +0200
+
+gcompris (6.1+6.3RC2-1) unstable; urgency=low
+
+  * New upstream release candidate.
+
+ -- Yann Dirson <dirson@debian.org>  Mon, 11 Oct 2004 23:21:34 +0200
+
+gcompris (6.1+6.3RC1-1) unstable; urgency=low
+
+  * New upstream release candidate.
+  * Acknowledge NMU (Closes: #263698).
+  * New package for danish sounds.
+  * Added debian/watch file.
+
+ -- Yann Dirson <dirson@debian.org>  Sat,  2 Oct 2004 15:19:58 +0200
+
+gcompris (6.1-1.1) unstable; urgency=medium
+
+  * NMU.
+  * Closes: #263698: Please use gcrypt11/gnutls11 instead of gcrypt7/gnutls10
+    - depend on libgnomeui-dev (>= 2.6.1.1-4)
+
+ -- Matthias Urlichs <smurf@debian.org>  Fri, 13 Aug 2004 10:06:09 +0200
+
+gcompris (6.1-1) unstable; urgency=low
+
+  * New upstream release, integrates fixes made on 6.0 packages.
+  * All python stuff has been moved to /usr/share, updated the Replaces
+    version of gcompris-data against gcompris.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 20 Jun 2004 10:50:46 +0200
+
+gcompris (6.0-4) unstable; urgency=low
+
+  * Added build-dep on python2.3-dev.  This one is missing for long
+    (although it breaks only now), and autobuilt 5.2 packages do not have
+    python support becuase of this.
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  8 Jun 2004 23:21:17 +0200
+
+gcompris (6.0-3) unstable; urgency=low
+
+  * Added build-dep on libxml-parser-perl for intltool to work (sigh).
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  8 Jun 2004 18:32:36 +0200
+
+gcompris (6.0-2) unstable; urgency=low
+
+  * Added missing build-dep on libsdl-mixer1.2-dev (Closes: #253274).
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  8 Jun 2004 11:58:21 +0200
+
+gcompris (6.0-1) unstable; urgency=low
+
+  * New upstream release:
+    - honor LC_MESSAGES (Closes: #244544).
+    - new packages libgcompris-1-0 and libgcompris-1-dev.
+    - new package for Italian sounds: gcompris-sound-it
+  * Added ${misc:Depends} to all packages to be safe.
+  * Removed mention of GNOME in the extended descriptions, since only
+    gcompris_edit is still a GNOME app.  
+  * Removed explicit list of language sounds from extended description.
+  * Replaced ref to inexistant LIBGCOMPRIS_LIBS with GCOMPRIS_LIBS in
+    src/gcompris/Makefile.am to give correct deps to the lib.
+  * Removed extraneous GCOMPRIS_LIBS from gcompris_LDADD.
+  * Moved $(XML_LIBS) from gcompris_LDADD to libgcompris_LIBADD for the
+    same reason.
+  * Reworked the installdoc and installchangelog handling.
+  * Autodetect languages for which sounds are available to avoid having
+    them hardcoded in debian/rules.
+  * Quoted menu files to make lintian happy.
+  * Moved python boards to gcompris-data since they are arch-indep.  Make
+    gcompris-data replace old gcompris because of this.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 28 May 2004 11:36:49 +0200
+
+gcompris (5.2-2) unstable; urgency=low
+
+  * Build-depend on dehelper 4.2.3 and use official dh_movefiles.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 20 Feb 2004 13:11:21 +0100
+
+gcompris (5.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Build with a fixed version of dh_movefiles 4.2.2 in debian/.
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 17 Feb 2004 14:03:28 +0100
+
+gcompris (5.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: 228712).
+
+ -- Yann Dirson <dirson@debian.org>  Mon,  9 Feb 2004 11:23:18 +0100
+
+gcompris (5.0-4) unstable; urgency=low
+
+  * Reverted the changes in -2 and -3, since auto* behave too much
+    differently for some reason (Closes: #231513).
+  * Remove info/dir* by hand instead.
+
+ -- Yann Dirson <dirson@debian.org>  Sat,  7 Feb 2004 11:30:20 +0100
+
+gcompris (5.0-3) unstable; urgency=low
+
+  * Added build-dep on libxml-parser-perl, since the new stuff brought
+    into aclocal.m4 in -2 wants it.  No idea what's happenning, and the
+    intltool stuff there does not even refer to this module.  Sigh.
+    Closes: #231371.
+
+ -- Yann Dirson <dirson@debian.org>  Fri,  6 Feb 2004 10:18:42 +0100
+
+gcompris (5.0-2) unstable; urgency=low
+
+  * Regenerated auto* stuff to get rid of info/dir things again.  Sigh.
+    Closes: #231332.
+
+ -- Yann Dirson <dirson@debian.org>  Thu,  5 Feb 2004 23:30:14 +0100
+
+gcompris (5.0-1) unstable; urgency=low
+
+  * New upstream release:
+    * fixes spanish words (Closes: #228712).
+    * incorporates the chess.c fix.
+    * gcompris-edit was renamed gcompris_edit.
+  * Added a menu entry for gcompris_edit.
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 31 Jan 2004 23:23:44 +0100
+
+gcompris (4.2-1) unstable; urgency=low
+
+  * New upstream release:
+    * uses default libao sound device, and a command-line flag to change
+    this (Closes: #218306, #218454, #221851).
+    * fixes random cursor color (Closes: #196182).
+    * now uses the default locale until it is changed from within
+    gcompris, and allow to get back to the default locale afterwards
+    (Closes: #170855, #146868).
+  * Fixed chess board to call /usr/games/gnuchess so it works when
+    /usr/games is not in the PATH (Closes: #222056).  Also fix the warning
+    message accordingly.
+  * Regenerated auto* stuff to get rid of info/dir things.  Manually fixed
+    again libvorbis check bug (#175858).  Sigh.
+
+ -- Yann Dirson <dirson@debian.org>  Wed,  3 Dec 2003 23:30:27 +0100
+
+gcompris (4.1-1) unstable; urgency=low
+
+  * New upstream release, can now select sound output at runtime.  Should
+    help to settle #218306.
+  * Regenerated autotools stuff again because of MDK's buggy automake.
+
+ -- Yann Dirson <dirson@debian.org>  Mon,  3 Nov 2003 22:16:50 +0100
+
+gcompris (4.0-3) unstable; urgency=low
+
+  * Rebuild with fixed libassetml, build-dep on it.
+  * Regenerated automake stuff, getting rid of extraneous info/dir*
+    (Closes: #217772).
+  * Manually fixed again call to vorbis_encode_init() in aclocal.m4
+    afterwards.
+
+ -- Yann Dirson <dirson@debian.org>  Mon, 27 Oct 2003 19:09:52 +0100
+
+gcompris (4.0-2) unstable; urgency=low
+
+  * Enable python support, to get the water-cycle board.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 26 Oct 2003 08:55:48 +0100
+
+gcompris (4.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Moved menu item to now-normative Apps/Education.
+  * Bumped Standards-Version to 3.6.1.
+  * Small debian/rules cleanups.
+  * Regenerated libtool stuff using 1.5, since the shipped 1.4-based barfs
+    on gnome-vfs.
+  * Manually fixed again call to vorbis_encode_init() in aclocal.m4
+    afterwards.
+  * Cleanup from .in files after install.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 24 Oct 2003 23:07:39 +0200
+
+gcompris (3.99+4.0pre3-2) unstable; urgency=low
+
+  * Rebuild to get the dependencies correctly computed (Closes: #215722).
+
+ -- Yann Dirson <dirson@debian.org>  Mon, 13 Oct 2003 14:51:32 +0200
+
+gcompris (3.99+4.0pre3-1) unstable; urgency=low
+
+  * New upstream pre-release.
+  * libassetml has been split into its own source package, we now build-depend
+    on the -dev package.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 12 Oct 2003 00:53:27 +0200
+
+gcompris (3.99+4.0pre2-1) unstable; urgency=low
+
+  * New upstream pre-release.
+  * New binary packages for libassetml.
+  * Reverted --bindir=/usr/games at configure-time, to avoid assetml-query
+    to be installed there, and move it games by hand.
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 11 Oct 2003 00:13:39 +0200
+
+gcompris (3.2-3) unstable; urgency=low
+
+  * Removed explicit dep on python2.2-gnome2, which will unnecessarily
+    hold gcompris from testing.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 25 Jul 2003 15:09:25 +0200
+
+gcompris (3.2-2) unstable; urgency=low
+
+  * Woops, removed debugging lines from debian/rules, causing failure
+    everywhere.
+
+ -- Yann Dirson <dirson@debian.org>  Mon, 21 Jul 2003 15:35:35 +0200
+
+gcompris (3.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Removed builddeps on python stuff.
+  * Use dh-buildinfo.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 20 Jul 2003 22:49:04 +0200
+
+gcompris (3.1-2) unstable; urgency=low
+
+  * Applied upstream fix to chess boards for compatibility with recent
+    gnuchess versions.
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 28 Jun 2003 14:16:22 +0200
+
+gcompris (3.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Build --without-python for now, since I can only get segfaults with
+    this for now, and it is not used yet.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 27 Jun 2003 20:55:16 +0200
+
+gcompris (3.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Now supports python, use dh_python but add explicit dep on the
+    relevant python-gnome package.
+  * Switch to using debian/compat.
+
+ -- Yann Dirson <dirson@debian.org>  Mon, 19 May 2003 21:18:27 +0200
+
+gcompris (2.3-5) unstable; urgency=low
+
+  * Applied upstream workaround for canvas bug (Closes: #180361).
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 25 Apr 2003 01:24:59 +0200
+  
+gcompris (2.3-4) unstable; urgency=low
+
+  * Fixed doc-base file to use real path to doc (Closes: #186148).
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 24 Apr 2003 21:19:02 +0200
+
+gcompris (2.3-3) unstable; urgency=low
+
+  * Rebuilt with new libvorbis-dev, to depend on libvorbis0a (Closes:
+    #185884).
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 23 Mar 2003 15:22:34 +0100
+
+gcompris (2.3-2) unstable; urgency=low
+
+  * Rebuilt configure from new libtool.m4 (Closes: #181845).
+  * manually fixed again libvorbis check bug (#175858).
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 13 Mar 2003 22:32:37 +0100
+
+gcompris (2.3-1) unstable; urgency=low
+
+  * New upstream release, no changes required any more.
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 18 Feb 2003 11:27:22 +0100
+
+gcompris (2.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #180587).
+  * Now has a portuguese set of sounds.
+  * Re-applied gnuchess-path-related changes.
+  * Removed undefined GNOME macros from configure.in, they were even not
+    expanded in upstream configure !
+  * Added AM_MAINTAINER_MODE call to configure.in, launched aclocal-1.4 &&
+    manually fixed libvorbis check bug (#175858) && autoconf2.50 &&
+    automake-1.4 to make things hopefully right, reactivated the "touch"
+    chain in debian/rules to prevent problems on buildd (Closes: #175922).
+  * Removed the now-useless --disable-vorbistest configure flag.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 13 Feb 2003 14:56:16 +0100
+
+gcompris (2.0.0-3) unstable; urgency=low
+
+  * Added build-dep on texi2html, should be OK now.
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  7 Jan 2003 12:01:16 +0100
+
+gcompris (2.0.0-2) unstable; urgency=low
+
+  * Last upload closes: #175420.
+  * Added build-dep on texinfo, removed build-dep on libgtkxmhtml-dev.
+
+ -- Yann Dirson <dirson@debian.org>  Mon,  6 Jan 2003 23:05:46 +0100
+
+gcompris (2.0.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Uses gnome2 now.  Build-depend on libgnomeui-dev.
+  * Removed libgdk-pixbuf-dev from build-deps, as it's pulled by
+    libgdk-pixbuf-gnome-dev.
+  * Have configure search for gnuchess in /usr/games/, and build-depend on
+    it.
+  * Noted that the check for libvorbis segfaults on my box, using
+    --disable-vorbistest for now.
+
+ -- Yann Dirson <dirson@debian.org>  Sat,  4 Jan 2003 22:57:45 +0100
+
+gcompris (1.2.1-3) unstable; urgency=low
+
+  * Updated config.{guess,sub} to catch mipsel build problem.
+  * Look for gnuchess in /usr/games instead of /usr/bin (Closes: #172342)
+  * Disabled the check for non-existence of gnuchessx, since we ship a
+    wrapper that tells that it's obsolete.
+  * Applied patch from Andrew Stribblehill (Closes: #162137).
+  * Build using -O2 -g to comply with policy 3.5.7 and newer.
+  * Cosmetic changes to make lintian a bit more happy.
+  * Bounced Standards-Version to 3.5.8.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 22 Dec 2002 22:31:51 +0100
+
+gcompris (1.2.1-2) unstable; urgency=low
+
+  * Oops, forgot to add libvorbis-dev to build-deps.
+
+ -- Yann Dirson <dirson@debian.org>  Thu,  5 Dec 2002 01:01:33 +0100
+
+gcompris (1.2.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Rebuild with latest gnome (Closes: #167202).
+  * Now requires libao-dev, libgtkxmhtml-dev and libvorbis-dev to build.
+
+ -- Yann Dirson <dirson@debian.org>  Wed,  4 Dec 2002 17:32:12 +0100
+
+gcompris (1.2.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 20 Sep 2002 23:06:54 +0200
+
+gcompris (1.1.0-2) unstable; urgency=low
+
+  * Include <locale.h> in src/gcompris/config.c (Closes: #155650).
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 14 Aug 2002 01:48:17 +0200
+
+gcompris (1.1.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * Reworked extended description.
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 20 Jul 2002 00:56:27 +0200
+
+gcompris (1.0.5-2) unstable; urgency=low
+
+  * Include <locale.h> in src/gcompris/gcompris.c (Fix from Ray Dassen,
+    Closes: #148702).  Quite strange that it was not needed on my machine
+    or upstream one.
+
+ -- Yann Dirson <dirson@debian.org>  Mon,  3 Jun 2002 01:24:03 +0200
+
+gcompris (1.0.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * Re-applied configure fix wrt xml.m4.
+  * Fixed doc-base title (Closes: #147000).
+  * Fixed typos in spanish wordlists (Closes: #146873).
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 30 May 2002 23:05:29 +0200
+
+gcompris (1.0.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Re-applied configure fix wrt xml.m4.
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 14 May 2002 00:01:17 +0200
+
+gcompris (1.0.3-3) unstable; urgency=medium
+
+  * The "I'll finally understand those who curse autotools all day"
+    release.
+  * Just patch ./configure manually to add this f***ing "#include
+    <string.h>" in the libxml test.  That should prevent any attempt to
+    rebuild any autotools-generated stuff (Closes: #143545, #143833).  I
+    know this is *bad*, but I won't spend more time on this issue, which
+    will be fixed the right way when a new release of libxml2 (>= 2.4.20,
+    still unreleased) will be installed on his bow when upstream runs
+    "aclocal".
+  * Removed autotools build-deps, and commented out "touch" hack from
+    debian/rules.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 21 Apr 2002 16:16:27 +0200
+
+gcompris (1.0.3-2) unstable; urgency=low
+
+  * Give up trying to fool autotools, build-depend on them (Closes:
+    #143545).
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 20 Apr 2002 14:37:09 +0200
+
+gcompris (1.0.3-1) unstable; urgency=medium
+
+  * New upstream bugfix release.
+  * Ran "srcdir=$PWD gnome-autogen.sh" and got depcomp again.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 18 Apr 2002 23:19:55 +0200
+
+gcompris (1.0.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Ran "srcdir=$PWD gnome-autogen.sh" so that fixes from Debian's libxml2
+    autoconf macros are propagated to ./configure, so as to allow building
+    on ia64.  Did that with libxml2-dev 2.4.19-4 (needs fix from -2).
+    Replaced depcomp symlink with a copy, to please dpkg-source.
+  * Use touch(1) as described in autotools-dev to prevent build-dep on
+    autotools.
+  * Add dependency on vorbis-tools so that sound works correctly.
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 16 Apr 2002 23:40:10 +0200
+
+gcompris (1.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * No autotools files to change this time (Closes: #138281).
+  * More verbose package descriptions (Closes: #135312).
+  * Correct capitalisation of language names (Closes: #124663).
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 20 Mar 2002 01:11:27 +0100
+
+gcompris (0.9.9+1.0.0pre4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Only keep configure.in patch.
+  * Ran "automake --add-missing --copy" because of missing depcomp.
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 13 Mar 2002 02:46:04 +0100
+
+gcompris (0.9.9+1.0.0pre3-1) unstable; urgency=low
+
+  * New upstream release.
+  * Use lowercase in version.
+  * Keep configure.in patch.
+  * Replaced in po/POTFILES.in unexistant gcompris.desktop.in with
+    gcompris.desktop.
+  * Don't use var refs in configure invocation, they break here.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 21 Feb 2002 07:29:43 +0100
+
+gcompris (0.9.9+1.0.0Pre2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Use gnome-config to for gnomecanvaspixbuf libs and cflags, and xml2
+    cflags.
+  * Split sound file per language, in their own packages (en, fr, de,
+    es).
+  * Updated extented description, now that there are much more boards.
+  * Wrote a small manpage with the help of help2man.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 17 Feb 2002 19:33:55 +0100
+
+gcompris (0.9.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * Needed to re-applied previous patch (although sent upstream IIRC).
+
+ -- Yann Dirson <dirson@debian.org>  Sun,  6 Jan 2002 18:14:19 +0100
+
+gcompris (0.9.4-1) unstable; urgency=low
+
+  * New upstream release:
+  ** Requires libxml2 now.
+  * Hacked various macros/*.m4 and **/Makefile.am to use gnome-config to
+    locate xml2 headers.
+  * Fixed path to GPL in copyright file (lintian).
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 24 Nov 2001 22:04:00 +0100
+
+gcompris (0.6.3-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Updated config.{guess,sub} from autotools-dev 20010719.1
+    (Closes: #104845).
+
+ -- Yann Dirson <dirson@debian.org>  Wed,  1 Aug 2001 23:37:02 +0200
+
+gcompris (0.6.1-1) unstable; urgency=low
+
+  * New upstream release:
+  ** Build-deps on libgdk-pixbuf-dev, libgdk-pixbuf-gnome-dev.
+  * Fixed safety net for files missed by movefiles.
+  * Declared the info file; fixed it so that it can be declared.
+  * Build postscript of doc; added to docs Makefile.am, and added
+    build-dep on dia and texinfo for this.  Well, finally no, "dia -e"
+    requires DISPLAY to be set :( - See #72721.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 31 May 2001 02:50:35 +0200
+
+gcompris (0.5.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #90660).
+  * Added safety net for files missed by movefiles.
+  * Fixed Makefile.am for DESTDIR support.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 20 Apr 2001 02:18:49 +0200
+
+gcompris (0.4.1-2) unstable; urgency=low
+
+  * Added libxml-dev to build-deps (Closes: #93775).
+  * Install in /usr/games/.
+  * Updated po/Makefie.in.in with the one from gettext 0.10.36-1 to get
+    DESTDIR support - catalog files were not installed.
+
+ -- Yann Dirson <dirson@debian.org>  Thu, 12 Apr 2001 23:49:06 +0200
+
+gcompris (0.4.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Now provides info file.
+  * Up'ed version build-dep on debhelper, since ve use v2.
+  * Fixed conffile declaration to be absolute (thanks lintian).
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 11 Apr 2001 02:09:18 +0200
+
+gcompris (0.3.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Updated extended description.
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 12 Dec 2000 00:44:18 +0100
+
+gcompris (0.3.3-1) unstable; urgency=low
+
+  * New upstream release - no need for 0.3.2-3 patch any more.
+  * Switched to DH_COMPAT=2.
+  * Restricted dependency on data package to exact match on version.
+  * Registered soundlist file as conffile.
+  * Fixed reversed symlinks for doc dir in game package.  Added workaround
+    in preinst for dpkg bug triggered by this change.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 27 Oct 2000 01:17:14 +0200
+
+gcompris (0.3.2-3) unstable; urgency=low
+
+  * Suppressed the "3 lives only" test in "letters" game, to make it more
+    suitable for children.
+
+ -- Yann Dirson <dirson@debian.org>  Sat,  7 Oct 2000 14:16:42 +0200
+
+gcompris (0.3.2-2) unstable; urgency=low
+
+  * Install soundlist file into /etc/sound/events/.
+
+ -- Yann Dirson <dirson@debian.org>  Tue,  3 Oct 2000 01:01:59 +0200
+
+gcompris (0.3.2-1) unstable; urgency=low
+
+  * Initial Release (Closes: #72719).
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 29 Sep 2000 00:17:03 +0200

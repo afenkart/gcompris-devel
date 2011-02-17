@@ -1,0 +1,11 @@
+Document: gcompris
+Title: Manual for GCompris - Educational games for small children
+Author: Bruno Caudoin
+Abstract: A collection of simple educational game for the GNOME desktop.
+ It is meant to become some sort of unified interface for more educational
+ games.
+Section: Education
+
+Format: HTML
+Index: /usr/share/doc/gcompris-data/C/gcompris.html
+Files: /usr/share/doc/gcompris-data/C/gcompris.html

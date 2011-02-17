@@ -1,0 +1,122 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper. 
+# GNU copyright 1997 by Joey Hess.
+#
+# This version is for a hypothetical package that builds an
+# architecture-dependant package, as well as an architecture-independent
+# package.
+
+export LC_ALL=C
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+SOUNDLANGS=$(shell grep 'Package: gcompris-sound-' debian/control | cut -d- -f3)
+
+topdir=$(shell pwd)
+debdir=${topdir}/debian
+tmpdir=${debdir}/tmp
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+
+ # Ensure autotools are not needed to build, despite aclocal having
+ # been run on the source pkg.
+#	touch configure.in && touch aclocal.m4 && touch configure
+
+ # --datadir=\$${prefix}/share/games causes problems to /usr/share/gnome/
+
+	./configure CFLAGS="-g -O2" LDFLAGS="-g" \
+	  --prefix=/usr --mandir=/usr/share/man \
+	  --infodir=/usr/share/info --sysconfdir=/etc \
+	  --x-libraries=/usr/lib \
+	  --with-python=/usr/bin/python --enable-py-build-only
+
+	touch configure-stamp
+
+build: configure-stamp build-stamp
+build-stamp:
+	dh_testdir
+	${MAKE}
+	${MAKE} -C docs/C # gcompris.ps
+
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp configure-stamp
+#	rm -rf autom4te.cache po/.intltool-merge-cache
+	[ ! -f Makefile ] || $(MAKE) distclean
+
+	dh_clean
+
+install: DH_OPTIONS=
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	$(MAKE) install DESTDIR=${tmpdir}
+	rm -f debian/tmp/usr/share/info/dir* debian/tmp/usr/lib/menu/*
+ # this license text has been copied to debian/copyright
+	rm debian/tmp/usr/share/gcompris/boards/memory/Licence.txt
+
+	cd debian/tmp/usr && mkdir -p games && mv bin/gcompris* games/
+	dh_movefiles
+	test -z "`find ${tmpdir} -not -type d | tee /dev/fd/2`"
+
+# Build architecture-independent files here.
+# Pass -i to all debhelper commands in this target to reduce clutter.
+#binary-indep: DH_OPTIONS=-i
+binary-indep: build install
+	dh_testdir -i
+	dh_testroot -i
+	for lang in ${SOUNDLANGS}; do \
+	  pkg=gcompris-sound-$${lang}; \
+	  mkdir -p ${debdir}/$${pkg}/usr/share/doc; \
+	  ln -s gcompris-data ${debdir}/$${pkg}/usr/share/doc/$${pkg}; \
+	done
+	dh_installdocs -i
+	find debian/gcompris-data -name 'Makefile*' | xargs rm -f
+	dh_buildinfo -i
+	dh_installinfo -pgcompris-data docs/C/gcompris.info
+#	dh_undocumented -i
+	dh_installchangelogs -i ChangeLog
+	dh_compress -i
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+# Build architecture-dependent files here.
+# Pass -a to all debhelper commands in this target to reduce clutter.
+binary-arch: DH_OPTIONS=-a
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installmenu
+	dh_installdocs
+	dh_installchangelogs -i ChangeLog
+	dh_lintian
+	dh_buildinfo
+	# this is a hack that the maintainer put in and the NMUer fixed.
+	for pkg in gcompris gcompris-dbg; do \
+	  rm -r ${debdir}/$${pkg}/usr/share/doc/$${pkg} ;\
+	  ln -s gcompris-data ${debdir}/$${pkg}/usr/share/doc/$${pkg} ;\
+	done
+	dh_strip --dbg-package=gcompris-dbg
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_shlibdeps
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

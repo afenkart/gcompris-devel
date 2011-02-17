@@ -1,0 +1,388 @@
+Source: gcompris
+Section: games
+Priority: optional
+Maintainer: Yann Dirson <dirson@debian.org>
+Homepage: http://gcompris.net/
+Build-Depends: debhelper (>= 6.0.7~), dh-buildinfo, dpkg-dev (>= 1.13.19), libxml2-dev, gnuchess, texinfo, texi2html, python-dev, python-gtk2-dev, libsdl-mixer1.2-dev, libxml-parser-perl, libxrandr-dev, libxxf86vm-dev, libsqlite3-dev, libgtk2.0-dev (>= 2.4.0), libgstreamer0.10-dev, intltool, libgnet-dev, librsvg2-dev, python-cairo-dev
+Standards-Version: 3.8.4
+
+Package: gcompris
+Architecture: any
+Depends: gcompris-data (= ${source:Version}), ${shlibs:Depends}, ${python:Depends}, python-pysqlite2, python-gtk2, gstreamer0.10-alsa | gstreamer0.10-audiosink, gstreamer0.10-plugins-base, gstreamer0.10-plugins-good, librsvg2-common (>= 2.18), python-cairo, ${misc:Depends}
+Suggests: gnuchess, gnucap, tuxpaint
+Replaces: gcompris-data (<< 8.4.1)
+Description: Educational games for small children
+ A large collection of educational games for small children.  It is meant to
+ become some sort of unified interface to integrate more educational
+ games.
+ .
+ Language-oriented games now contain vocabulary for too many languages
+ to list them heres.  Sounds and voices are also available for a number of
+ languages, check the gcompris-sound packages for your language.
+ .
+ Currently available boards include:
+  * learning how to use a mouse and keyboard
+  * learning simple arithmetics
+  * learning how to read an analog clock
+  * recognize letters after hearing their names
+  * reading practice
+  * small games (memory games, jigsaw puzzles, ...)
+  * etc.
+ .
+ It is designed so that it is easy to implement new boards to
+ GCompris.
+ .
+ A number of boards are only available if other packages are
+ installed, see the Suggests list for more details.
+
+Package: gcompris-dbg
+Section: debug
+Architecture: any
+Priority: extra
+Depends: gcompris (= ${binary:Version}), ${misc:Depends}
+Description: Debugging symbols for gcompris
+ This package contains the stripped debugging symbols for gcompris.
+
+Package: gcompris-sound-ar
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Arabic (Tunisia) sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-ast
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Asturian sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-bg
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Bulgarian sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-br
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Breton sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-cs
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Czech sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-da
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Danish sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-de
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: German sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-el
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Greek sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-en
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: English sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-eo
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Esperanto sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-es
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Spanish sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-eu
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Basque sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-fi
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Finnish sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-fr
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: French sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-he
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Hebrew sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-hi
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Indian Hindi sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-hu
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Hungarian sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-id
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Indonesian sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-it
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Italian sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-mr
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Indian Marathi sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-nb
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Norwegian (Bokmal) sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-nl
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Dutch sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-nn
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Norwegian (Nynorsk) sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-pa
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Punjabi sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-pt
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Portuguese sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-ptbr
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Portuguese sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-ru
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Russian sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-so
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Somali sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-sr
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Serbian sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-sv
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Swedish sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-tr
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Turkish sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-ur
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Urdu sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-sound-zhcn
+Architecture: all
+Recommends: gcompris
+Depends: gcompris-data (= ${source:Version}), ${misc:Depends}
+Provides: gcompris-sound
+Description: Chinese sound files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ These are sounds used in some boards.
+
+Package: gcompris-data
+Architecture: all
+Recommends: gcompris, gcompris-sound-en | gcompris-sound
+Depends: ${misc:Depends}
+Replaces: gcompris (<< 6.1-1)
+Description: Data files for GCompris
+ GCompris is a collection of educational games for small children.
+ .
+ This package contains the definitions of these standard boards, along
+ with associated images.
+ .
+ Some boards make use of sounds.  For those you'll have to install the
+ gcompris-sound package for the languages you intend to use.

@@ -1,0 +1,4 @@
+?package(gcompris):needs="X11" section="Applications/Education" \
+  title="gcompris" command="/usr/games/gcompris"
+?package(gcompris):needs="X11" section="Applications/Education" \
+  title="gcompris profile editor" command="/usr/games/gcompris -a"
