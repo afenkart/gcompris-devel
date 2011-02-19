@@ -1,11 +1,8 @@
-gcompris (9.3-1) unstable; urgency=low
+gcompris (9.4-0-109-g6c18026) unstable; urgency=low
 
-  * New upstream release.
-  * Drop GTK_DISABLE_DEPRECATED patch, useless for now.
-  * Provide RELEASE_NOTE_9.3.txt downloaded from sourceforge.
-  * New voice package for Asturian.
+  * Debug some crashes
 
- -- Yann Dirson <dirson@debian.org>  Sun, 27 Jun 2010 22:51:30 +0200
+ -- Andreas Fenkart <afenkart@gmail.com>  Sat, 19 Feb 2011 23:16:30 +0100
 
 gcompris (9.2-2-2) unstable; urgency=low
 
