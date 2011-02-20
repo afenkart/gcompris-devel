@@ -29,7 +29,6 @@
 
 static GstElement *bg_pipeline = NULL;
 static GstElement *fx_pipeline = NULL;
-static gchar *cur_file; 
 
 static gboolean	 fx_paused = FALSE;
 static gboolean	 bg_paused = FALSE;
@@ -66,7 +65,6 @@ fx_bus(GstBus* bus, GstMessage* msg, gpointer data)
       g_warning("fx_bus: EOS START");
       gc_sound_fx_close();
       gc_sound_callback((gchar *)data);
-      cur_file = NULL;
       fx_play();
       g_warning("fx_bus: EOS END");
       break;
@@ -112,8 +110,6 @@ gc_sound_fx_close()
       gst_element_set_state(fx_pipeline, GST_STATE_NULL);
       gst_object_unref(GST_OBJECT(fx_pipeline));
       fx_pipeline = NULL;
-      if (cur_file)
-	gc_sound_callback(cur_file);
     }
   g_warning("gc_sound_fx_close done");
 }
@@ -253,7 +249,6 @@ fx_play()
   g_object_set (G_OBJECT (fx_pipeline), "uri", uri, NULL);
   gst_bus_add_watch (gst_pipeline_get_bus (GST_PIPELINE (fx_pipeline)),
 		     fx_bus, file);
-  cur_file = file;
 
   gst_element_set_state (fx_pipeline, GST_STATE_PLAYING);
 
