@@ -233,7 +233,7 @@ fx_play()
       !properties->fx)
     return;
 
-  fx_pipeline = gst_element_factory_make ("playbin", "play");
+  fx_pipeline = gst_element_factory_make ("playbin2", "play");
 
   if (!fx_pipeline)
     {
